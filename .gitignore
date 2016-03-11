@@ -1,0 +1,11 @@
+*.class
+*.o
+.classpath
+.project
+.settings
+*.log
+mdb.ini
+target
+*.pyc
+.idea
+*.iml
