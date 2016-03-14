@@ -77,7 +77,7 @@ echo 'mvn deploy:deploy-file \
     -Durl=sftp://maven.ambraproject.org/home/maven2/repository/release
 ' > java_deploy/deploy.sh
 
-$GENERATE -i $SWAGGER -l java -o ./java -c ned_java.json \
+$GENERATE -i $SWAGGER -l java -o ./java -t ./templates/Java -c ned_java.json \
   && cd java && mvn clean install && cd ..
 
 
