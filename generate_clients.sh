@@ -1,6 +1,9 @@
 #!/bin/bash
 
-CODEGEN=$HOME/applications/swagger-codegen-cli.jar
+set -x
+
+CODEGEN=$HOME/applications/swagger-codegen/modules/swagger-codegen-cli/target/swagger-codegen-cli.jar
+# CODEGEN=swagger-codegen-cli.jar
 
 SERVICE=http://localhost:8080/v1
 
@@ -11,6 +14,12 @@ CONFIG=$SERVICE/service/config
 
 if [[ -n "$1" ]]; then
   CODEGEN=$1
+# else
+#
+#   if [ ! -f "$CODEGEN" ]; then
+#     wget http://repo1.maven.org/maven2/io/swagger/swagger-codegen-cli/2.1.5/swagger-codegen-cli-2.1.5.jar -O swagger-codegen-cli.jar
+#   fi
+
 fi
 
 if [[ -n "$2" ]]; then
@@ -29,11 +38,11 @@ echo "VERSION: $VERSION"
 
 # JSON SWAGGER SPEC
 
-$GENERATE -i $SWAGGER -l swagger -o ./swagger
+# $GENERATE -i $SWAGGER -l swagger -o ./swagger
 
 # STATIC HTML DOC
 
-$GENERATE -i $SWAGGER -l html -o ./html
+# $GENERATE -i $SWAGGER -l html -o ./html
 
 # PYTHON
 
@@ -42,7 +51,7 @@ echo '{
   "packageVersion": "'${VERSION}'"
 }' > ned_python.json
 
-$GENERATE -i $SWAGGER -l python -o ./python -c ned_python.json
+# $GENERATE -i $SWAGGER -l python -o ./python -c ned_python.json
 
 # RUBY
 
@@ -52,8 +61,8 @@ echo '{
   "gemVersion": "'$(echo ${VERSION}|sed 's/\-/\./')'"
 }' > ned_ruby.json
 
-$GENERATE -i $SWAGGER -l ruby -o ./ruby -c ned_ruby.json \
-  && cd ruby && rm *.gem && gem build ned_client.gemspec && cd ..
+# $GENERATE -i $SWAGGER -l ruby -o ./ruby -c ned_ruby.json \
+#   && cd ruby && rm *.gem && gem build ned_client.gemspec && cd ..
 
 # JAVA
 
@@ -63,6 +72,7 @@ echo '{
   "apiPackage": "org.plos.ned_client.api",
   "modelPackage": "org.plos.ned_client.model",
   "invokerPackage": "org.plos.ned_client",
+  "dateLibrary": "java8",
   "artifactVersion": "'${VERSION}'"
 }' > ned_java.json
 

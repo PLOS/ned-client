@@ -4,5 +4,6 @@
   "apiPackage": "org.plos.ned_client.api",
   "modelPackage": "org.plos.ned_client.model",
   "invokerPackage": "org.plos.ned_client",
+  "dateLibrary": "java8",
   "artifactVersion": "1.1.0-SNAPSHOT"
 }
