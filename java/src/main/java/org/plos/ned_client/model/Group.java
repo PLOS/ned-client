@@ -2,18 +2,19 @@ package org.plos.ned_client.model;
 
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Date;
+import java.time.LocalDate;
 
+import org.plos.ned_client.*;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
-
-
-
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-03-03T13:54:47.854-08:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-03-15T10:03:59.728-07:00")
 public class Group   {
-  
+
   private Integer id = null;
   private Integer nedid = null;
   private String source = null;
@@ -26,15 +27,21 @@ public class Group   {
   private String lastmodifiedbyname = null;
   private Integer typeid = null;
   private String type = null;
-  private Date startdate = null;
-  private Date enddate = null;
+
+  @JsonSerialize(using = LocalDateSerializer.class)
+  @JsonDeserialize(using = LocalDateDeserializer.class)
+  private LocalDate startdate = null;
+
+  @JsonSerialize(using = LocalDateSerializer.class)
+  @JsonDeserialize(using = LocalDateDeserializer.class)
+  private LocalDate enddate = null;
   private String applicationtype = null;
   private Integer applicationtypeid = null;
 
-  
+
   /**
    **/
-  
+
   @ApiModelProperty(value = "")
   @JsonProperty("id")
   public Integer getId() {
@@ -44,10 +51,10 @@ public class Group   {
     this.id = id;
   }
 
-  
+
   /**
    **/
-  
+
   @ApiModelProperty(value = "")
   @JsonProperty("nedid")
   public Integer getNedid() {
@@ -57,10 +64,10 @@ public class Group   {
     this.nedid = nedid;
   }
 
-  
+
   /**
    **/
-  
+
   @ApiModelProperty(value = "")
   @JsonProperty("source")
   public String getSource() {
@@ -70,10 +77,10 @@ public class Group   {
     this.source = source;
   }
 
-  
+
   /**
    **/
-  
+
   @ApiModelProperty(value = "")
   @JsonProperty("sourcetypeid")
   public Integer getSourcetypeid() {
@@ -83,10 +90,10 @@ public class Group   {
     this.sourcetypeid = sourcetypeid;
   }
 
-  
+
   /**
    **/
-  
+
   @ApiModelProperty(value = "")
   @JsonProperty("created")
   public Date getCreated() {
@@ -96,10 +103,10 @@ public class Group   {
     this.created = created;
   }
 
-  
+
   /**
    **/
-  
+
   @ApiModelProperty(value = "")
   @JsonProperty("lastmodified")
   public Date getLastmodified() {
@@ -109,10 +116,10 @@ public class Group   {
     this.lastmodified = lastmodified;
   }
 
-  
+
   /**
    **/
-  
+
   @ApiModelProperty(value = "")
   @JsonProperty("createdby")
   public Integer getCreatedby() {
@@ -122,10 +129,10 @@ public class Group   {
     this.createdby = createdby;
   }
 
-  
+
   /**
    **/
-  
+
   @ApiModelProperty(value = "")
   @JsonProperty("createdbyname")
   public String getCreatedbyname() {
@@ -135,10 +142,10 @@ public class Group   {
     this.createdbyname = createdbyname;
   }
 
-  
+
   /**
    **/
-  
+
   @ApiModelProperty(value = "")
   @JsonProperty("lastmodifiedby")
   public Integer getLastmodifiedby() {
@@ -148,10 +155,10 @@ public class Group   {
     this.lastmodifiedby = lastmodifiedby;
   }
 
-  
+
   /**
    **/
-  
+
   @ApiModelProperty(value = "")
   @JsonProperty("lastmodifiedbyname")
   public String getLastmodifiedbyname() {
@@ -161,10 +168,10 @@ public class Group   {
     this.lastmodifiedbyname = lastmodifiedbyname;
   }
 
-  
+
   /**
    **/
-  
+
   @ApiModelProperty(value = "")
   @JsonProperty("typeid")
   public Integer getTypeid() {
@@ -174,10 +181,10 @@ public class Group   {
     this.typeid = typeid;
   }
 
-  
+
   /**
    **/
-  
+
   @ApiModelProperty(value = "")
   @JsonProperty("type")
   public String getType() {
@@ -187,36 +194,50 @@ public class Group   {
     this.type = type;
   }
 
-  
+
+
+
+
+
+
+
   /**
    **/
-  
+
   @ApiModelProperty(value = "")
   @JsonProperty("startdate")
-  public Date getStartdate() {
+  // @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd")
+  public LocalDate getStartdate() {
     return startdate;
   }
-  public void setStartdate(Date startdate) {
+
+  // @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd")
+  public void setStartdate(LocalDate startdate) {
     this.startdate = startdate;
   }
 
-  
+
+
+
   /**
    **/
-  
+
   @ApiModelProperty(value = "")
   @JsonProperty("enddate")
-  public Date getEnddate() {
+  // @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd")
+  public LocalDate getEnddate() {
     return enddate;
   }
-  public void setEnddate(Date enddate) {
+
+  // @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd")
+  public void setEnddate(LocalDate enddate) {
     this.enddate = enddate;
   }
 
-  
+
   /**
    **/
-  
+
   @ApiModelProperty(value = "")
   @JsonProperty("applicationtype")
   public String getApplicationtype() {
@@ -226,10 +247,10 @@ public class Group   {
     this.applicationtype = applicationtype;
   }
 
-  
+
   /**
    **/
-  
+
   @ApiModelProperty(value = "")
   @JsonProperty("applicationtypeid")
   public Integer getApplicationtypeid() {
@@ -239,7 +260,7 @@ public class Group   {
     this.applicationtypeid = applicationtypeid;
   }
 
-  
+
 
   @Override
   public boolean equals(Object o) {
@@ -277,7 +298,7 @@ public class Group   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Group {\n");
-    
+
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    nedid: ").append(toIndentedString(nedid)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
@@ -309,4 +330,3 @@ public class Group   {
     return o.toString().replace("\n", "\n    ");
   }
 }
-

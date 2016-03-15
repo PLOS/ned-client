@@ -5,8 +5,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import org.plos.ned_client.model.Address;
 import org.plos.ned_client.model.Email;
 import org.plos.ned_client.model.Phonenumber;
@@ -16,7 +17,7 @@ import org.plos.ned_client.model.Uniqueidentifier;
 
 
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-03-03T13:54:47.854-08:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-03-15T10:03:59.728-07:00")
 public class OrganizationComposite   {
   
   private List<Address> addresses = new ArrayList<Address>();
@@ -26,11 +27,11 @@ public class OrganizationComposite   {
   private Date created = null;
   private String type = null;
   private String source = null;
+  private Integer typeid = null;
   private Integer sourcetypeid = null;
   private Integer nedid = null;
-  private Integer typeid = null;
-  private Boolean isactive = false;
   private Date lastmodified = null;
+  private Boolean isactive = false;
   private String familiarname = null;
   private String legalname = null;
   private Integer maincontactid = null;
@@ -152,6 +153,19 @@ public class OrganizationComposite   {
    **/
   
   @ApiModelProperty(value = "")
+  @JsonProperty("typeid")
+  public Integer getTypeid() {
+    return typeid;
+  }
+  public void setTypeid(Integer typeid) {
+    this.typeid = typeid;
+  }
+
+  
+  /**
+   **/
+  
+  @ApiModelProperty(value = "")
   @JsonProperty("sourcetypeid")
   public Integer getSourcetypeid() {
     return sourcetypeid;
@@ -178,12 +192,12 @@ public class OrganizationComposite   {
    **/
   
   @ApiModelProperty(value = "")
-  @JsonProperty("typeid")
-  public Integer getTypeid() {
-    return typeid;
+  @JsonProperty("lastmodified")
+  public Date getLastmodified() {
+    return lastmodified;
   }
-  public void setTypeid(Integer typeid) {
-    this.typeid = typeid;
+  public void setLastmodified(Date lastmodified) {
+    this.lastmodified = lastmodified;
   }
 
   
@@ -197,19 +211,6 @@ public class OrganizationComposite   {
   }
   public void setIsactive(Boolean isactive) {
     this.isactive = isactive;
-  }
-
-  
-  /**
-   **/
-  
-  @ApiModelProperty(value = "")
-  @JsonProperty("lastmodified")
-  public Date getLastmodified() {
-    return lastmodified;
-  }
-  public void setLastmodified(Date lastmodified) {
-    this.lastmodified = lastmodified;
   }
 
   
@@ -282,11 +283,11 @@ public class OrganizationComposite   {
         Objects.equals(created, organizationComposite.created) &&
         Objects.equals(type, organizationComposite.type) &&
         Objects.equals(source, organizationComposite.source) &&
+        Objects.equals(typeid, organizationComposite.typeid) &&
         Objects.equals(sourcetypeid, organizationComposite.sourcetypeid) &&
         Objects.equals(nedid, organizationComposite.nedid) &&
-        Objects.equals(typeid, organizationComposite.typeid) &&
-        Objects.equals(isactive, organizationComposite.isactive) &&
         Objects.equals(lastmodified, organizationComposite.lastmodified) &&
+        Objects.equals(isactive, organizationComposite.isactive) &&
         Objects.equals(familiarname, organizationComposite.familiarname) &&
         Objects.equals(legalname, organizationComposite.legalname) &&
         Objects.equals(maincontactid, organizationComposite.maincontactid) &&
@@ -295,7 +296,7 @@ public class OrganizationComposite   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addresses, emails, phonenumbers, uniqueidentifiers, created, type, source, sourcetypeid, nedid, typeid, isactive, lastmodified, familiarname, legalname, maincontactid, typeName);
+    return Objects.hash(addresses, emails, phonenumbers, uniqueidentifiers, created, type, source, typeid, sourcetypeid, nedid, lastmodified, isactive, familiarname, legalname, maincontactid, typeName);
   }
 
   @Override
@@ -310,11 +311,11 @@ public class OrganizationComposite   {
     sb.append("    created: ").append(toIndentedString(created)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
+    sb.append("    typeid: ").append(toIndentedString(typeid)).append("\n");
     sb.append("    sourcetypeid: ").append(toIndentedString(sourcetypeid)).append("\n");
     sb.append("    nedid: ").append(toIndentedString(nedid)).append("\n");
-    sb.append("    typeid: ").append(toIndentedString(typeid)).append("\n");
-    sb.append("    isactive: ").append(toIndentedString(isactive)).append("\n");
     sb.append("    lastmodified: ").append(toIndentedString(lastmodified)).append("\n");
+    sb.append("    isactive: ").append(toIndentedString(isactive)).append("\n");
     sb.append("    familiarname: ").append(toIndentedString(familiarname)).append("\n");
     sb.append("    legalname: ").append(toIndentedString(legalname)).append("\n");
     sb.append("    maincontactid: ").append(toIndentedString(maincontactid)).append("\n");

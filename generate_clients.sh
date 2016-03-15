@@ -72,7 +72,6 @@ echo '{
   "apiPackage": "org.plos.ned_client.api",
   "modelPackage": "org.plos.ned_client.model",
   "invokerPackage": "org.plos.ned_client",
-  "dateLibrary": "java8",
   "artifactVersion": "'${VERSION}'"
 }' > ned_java.json
 

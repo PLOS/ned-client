@@ -11,7 +11,7 @@ import org.plos.ned_client.model.Alert;
 
 import java.util.*;
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-03-03T13:54:47.854-08:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-03-15T10:03:59.728-07:00")
 public class QueriesApi {
   private ApiClient apiClient;
 
