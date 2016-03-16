@@ -8,15 +8,15 @@
   "tags" : [ {
     "name" : "organizations"
   }, {
+    "name" : "individuals"
+  }, {
+    "name" : "institutionsearch"
+  }, {
     "name" : "queries"
   }, {
     "name" : "service"
   }, {
     "name" : "typeclasses"
-  }, {
-    "name" : "institutionsearch"
-  }, {
-    "name" : "individuals"
   } ],
   "schemes" : [ "https", "http" ],
   "paths" : {
@@ -2894,15 +2894,15 @@
         "source" : {
           "type" : "string"
         },
-        "sourcetypeid" : {
-          "type" : "integer",
-          "format" : "int32"
-        },
         "nedid" : {
           "type" : "integer",
           "format" : "int32"
         },
         "typeid" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "sourcetypeid" : {
           "type" : "integer",
           "format" : "int32"
         },
