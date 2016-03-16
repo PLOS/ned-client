@@ -9,3 +9,4 @@ target
 *.pyc
 .idea
 *.iml
+swagger-codegen-cli.jar

@@ -11,21 +11,23 @@ public class App {
     public static void main( String[] args ) throws ApiException {
 
         ApiClient apiclient = new ApiClient();
-        apiclient.setBasePath("https://prod-ned01.plos.org/v1");
+        apiclient.setBasePath("http://localhost:8080/v1");
         apiclient.setUsername("akita");
-        apiclient.setPassword("6AhNM9Mb9rFQhSPx0zJa");
+        apiclient.setPassword("akita");
         apiclient.setDebugging(true);
 
         ServiceApi serviceApi = new ServiceApi(apiclient);
         TypeclassesApi typeclassesapi = new TypeclassesApi(apiclient);
-
         IndividualsApi individualsApi = new IndividualsApi(apiclient);
 
         System.out.println(serviceApi.config());
 
-        System.out.println("typeclass description: " + typeclassesapi.read(12).getDescription());
+        System.out.println("typeclass description: " +
+        typeclassesapi.read(12).getDescription());
 
-        System.out.println("groups: " + individualsApi.readIndividual(1012).getGroups());
+        individualsApi.readIndividual(476550);
+
+        System.out.println("Start date: " +individualsApi.getGroups(476550).get(0).getStartdate());
 
     }
 }

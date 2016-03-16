@@ -2,18 +2,18 @@ package org.plos.ned_client.model;
 
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Date;
+import java.time.LocalDate;
 
+import org.plos.ned_client.*;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
-
-
-
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-03-03T13:54:47.854-08:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen")
 public class Relationship   {
-  
+
   private Integer id = null;
   private Integer nedid = null;
   private String source = null;
@@ -28,13 +28,19 @@ public class Relationship   {
   private Integer typeid = null;
   private String type = null;
   private String title = null;
-  private Date startdate = null;
-  private Date enddate = null;
 
-  
+  @JsonSerialize(using = LocalDateSerializer.class)
+  @JsonDeserialize(using = LocalDateDeserializer.class)
+  private LocalDate startdate = null;
+
+  @JsonSerialize(using = LocalDateSerializer.class)
+  @JsonDeserialize(using = LocalDateDeserializer.class)
+  private LocalDate enddate = null;
+
+
   /**
    **/
-  
+
   @ApiModelProperty(value = "")
   @JsonProperty("id")
   public Integer getId() {
@@ -44,10 +50,10 @@ public class Relationship   {
     this.id = id;
   }
 
-  
+
   /**
    **/
-  
+
   @ApiModelProperty(value = "")
   @JsonProperty("nedid")
   public Integer getNedid() {
@@ -57,10 +63,10 @@ public class Relationship   {
     this.nedid = nedid;
   }
 
-  
+
   /**
    **/
-  
+
   @ApiModelProperty(value = "")
   @JsonProperty("source")
   public String getSource() {
@@ -70,10 +76,10 @@ public class Relationship   {
     this.source = source;
   }
 
-  
+
   /**
    **/
-  
+
   @ApiModelProperty(value = "")
   @JsonProperty("sourcetypeid")
   public Integer getSourcetypeid() {
@@ -83,10 +89,10 @@ public class Relationship   {
     this.sourcetypeid = sourcetypeid;
   }
 
-  
+
   /**
    **/
-  
+
   @ApiModelProperty(value = "")
   @JsonProperty("created")
   public Date getCreated() {
@@ -96,10 +102,10 @@ public class Relationship   {
     this.created = created;
   }
 
-  
+
   /**
    **/
-  
+
   @ApiModelProperty(value = "")
   @JsonProperty("lastmodified")
   public Date getLastmodified() {
@@ -109,10 +115,10 @@ public class Relationship   {
     this.lastmodified = lastmodified;
   }
 
-  
+
   /**
    **/
-  
+
   @ApiModelProperty(value = "")
   @JsonProperty("createdby")
   public Integer getCreatedby() {
@@ -122,10 +128,10 @@ public class Relationship   {
     this.createdby = createdby;
   }
 
-  
+
   /**
    **/
-  
+
   @ApiModelProperty(value = "")
   @JsonProperty("createdbyname")
   public String getCreatedbyname() {
@@ -135,10 +141,10 @@ public class Relationship   {
     this.createdbyname = createdbyname;
   }
 
-  
+
   /**
    **/
-  
+
   @ApiModelProperty(value = "")
   @JsonProperty("lastmodifiedby")
   public Integer getLastmodifiedby() {
@@ -148,10 +154,10 @@ public class Relationship   {
     this.lastmodifiedby = lastmodifiedby;
   }
 
-  
+
   /**
    **/
-  
+
   @ApiModelProperty(value = "")
   @JsonProperty("lastmodifiedbyname")
   public String getLastmodifiedbyname() {
@@ -161,10 +167,10 @@ public class Relationship   {
     this.lastmodifiedbyname = lastmodifiedbyname;
   }
 
-  
+
   /**
    **/
-  
+
   @ApiModelProperty(value = "")
   @JsonProperty("nedidrelated")
   public Integer getNedidrelated() {
@@ -174,10 +180,10 @@ public class Relationship   {
     this.nedidrelated = nedidrelated;
   }
 
-  
+
   /**
    **/
-  
+
   @ApiModelProperty(value = "")
   @JsonProperty("typeid")
   public Integer getTypeid() {
@@ -187,10 +193,10 @@ public class Relationship   {
     this.typeid = typeid;
   }
 
-  
+
   /**
    **/
-  
+
   @ApiModelProperty(value = "")
   @JsonProperty("type")
   public String getType() {
@@ -200,10 +206,10 @@ public class Relationship   {
     this.type = type;
   }
 
-  
+
   /**
    **/
-  
+
   @ApiModelProperty(value = "")
   @JsonProperty("title")
   public String getTitle() {
@@ -213,33 +219,33 @@ public class Relationship   {
     this.title = title;
   }
 
-  
+
   /**
    **/
-  
+
   @ApiModelProperty(value = "")
   @JsonProperty("startdate")
-  public Date getStartdate() {
+  public LocalDate getStartdate() {
     return startdate;
   }
-  public void setStartdate(Date startdate) {
+  public void setStartdate(LocalDate startdate) {
     this.startdate = startdate;
   }
 
-  
+
   /**
    **/
-  
+
   @ApiModelProperty(value = "")
   @JsonProperty("enddate")
-  public Date getEnddate() {
+  public LocalDate getEnddate() {
     return enddate;
   }
-  public void setEnddate(Date enddate) {
+  public void setEnddate(LocalDate enddate) {
     this.enddate = enddate;
   }
 
-  
+
 
   @Override
   public boolean equals(Object o) {
@@ -277,7 +283,7 @@ public class Relationship   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Relationship {\n");
-    
+
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    nedid: ").append(toIndentedString(nedid)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
@@ -309,4 +315,3 @@ public class Relationship   {
     return o.toString().replace("\n", "\n    ");
   }
 }
-
