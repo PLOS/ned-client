@@ -2,7 +2,6 @@ package org.plos.ned_client.model;
 
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Date;
@@ -37,7 +36,7 @@ public class Group   {
   @JsonSerialize(using = LocalDateSerializer.class)
   @JsonDeserialize(using = LocalDateDeserializer.class)
   private LocalDate enddate = null;
-  
+
   /**
    **/
 
@@ -205,12 +204,10 @@ public class Group   {
 
   @ApiModelProperty(value = "")
   @JsonProperty("startdate")
-  // @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd")
   public LocalDate getStartdate() {
     return startdate;
   }
 
-  // @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd")
   public void setStartdate(LocalDate startdate) {
     this.startdate = startdate;
   }
@@ -223,12 +220,10 @@ public class Group   {
 
   @ApiModelProperty(value = "")
   @JsonProperty("enddate")
-  // @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd")
   public LocalDate getEnddate() {
     return enddate;
   }
 
-  // @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd")
   public void setEnddate(LocalDate enddate) {
     this.enddate = enddate;
   }

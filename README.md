@@ -6,7 +6,7 @@ These libraries are auto generated from NED's Swagger spec via swagger codegen. 
 
 See https://github.com/swagger-api/swagger-codegen
 
-This assumes you have built pulled and built their master branch into $HOME/applications/swagger-codegen
+This assumes you have built their master branch into $HOME/applications/swagger-codegen
 
 
 ## Generate/Update the client libraries
