@@ -28,12 +28,12 @@ public class Group   {
   private Integer typeid = null;
   private String type = null;
 
-  @JsonSerialize(using = LocalDateSerializer.class)
-  @JsonDeserialize(using = LocalDateDeserializer.class)
+  // @JsonSerialize(using = LocalDateSerializer.class)
+  // @JsonDeserialize(using = LocalDateDeserializer.class)
   private LocalDate startdate = null;
 
-  @JsonSerialize(using = LocalDateSerializer.class)
-  @JsonDeserialize(using = LocalDateDeserializer.class)
+  // @JsonSerialize(using = LocalDateSerializer.class)
+  // @JsonDeserialize(using = LocalDateDeserializer.class)
   private LocalDate enddate = null;
   private String applicationtype = null;
   private Integer applicationtypeid = null;

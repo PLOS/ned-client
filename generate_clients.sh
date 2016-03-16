@@ -75,6 +75,10 @@ echo '{
   "artifactVersion": "'${VERSION}'"
 }' > ned_java.json
 
+# to generate LocalDate objects use "dateLibrary": "java8" in above json
+#   cant use yet: https://github.com/swagger-api/swagger-codegen/issues/2377
+
+
 echo 'mvn deploy:deploy-file \
 		-DpomFile="pom.xml" \
 		-DgroupId="org.plos" \

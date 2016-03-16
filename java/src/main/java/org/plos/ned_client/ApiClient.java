@@ -5,6 +5,9 @@ import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.datatype.joda.*;
 import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
 
+
+import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
+
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.GenericType;
@@ -41,6 +44,16 @@ import org.plos.ned_client.auth.HttpBasicAuth;
 import org.plos.ned_client.auth.ApiKeyAuth;
 import org.plos.ned_client.auth.OAuth;
 
+
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import java.time.LocalDate;
+import java.time.*;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
+
+import java.time.format.DateTimeFormatter;
+import java.util.*;
+
+
 @javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-03-03T13:54:47.854-08:00")
 public class ApiClient {
   private Map<String, Client> hostMap = new HashMap<String, Client>();
@@ -64,7 +77,21 @@ public class ApiClient {
     mapper.enable(SerializationFeature.WRITE_ENUMS_USING_TO_STRING);
     mapper.enable(DeserializationFeature.READ_ENUMS_USING_TO_STRING);
     mapper.registerModule(new JodaModule());
-  
+
+
+    mapper.registerModule(new Jdk8Module());
+
+
+
+
+    JavaTimeModule javaTimeModule=new JavaTimeModule();
+    javaTimeModule.addDeserializer(LocalDateTime.class, new LocalDateTimeDeserializer(DateTimeFormatter.ISO_DATE_TIME));
+
+    mapper.registerModule(javaTimeModule);
+
+
+
+
     // Use RFC3339 format for date and datetime.
     // See http://xml2rfc.ietf.org/public/rfc/html/rfc3339.html#anchor14
     this.dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
