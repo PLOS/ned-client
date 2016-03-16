@@ -38,7 +38,7 @@ echo "VERSION: $VERSION"
 
 # JSON SWAGGER SPEC
 
-# $GENERATE -i $SWAGGER -l swagger -o ./swagger
+$GENERATE -i $SWAGGER -l swagger -o ./swagger
 
 # STATIC HTML DOC
 

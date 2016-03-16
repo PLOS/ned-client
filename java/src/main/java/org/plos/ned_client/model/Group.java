@@ -27,7 +27,6 @@ public class Group   {
   private String lastmodifiedbyname = null;
   private Integer typeid = null;
   private String type = null;
-  private LocalDate enddate = null;
   private String applicationtype = null;
   private Integer applicationtypeid = null;
 
@@ -37,7 +36,8 @@ public class Group   {
 
   @JsonSerialize(using = LocalDateSerializer.class)
   @JsonDeserialize(using = LocalDateDeserializer.class)
-
+  private LocalDate enddate = null;
+  
   /**
    **/
 
