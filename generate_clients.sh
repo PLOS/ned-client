@@ -1,6 +1,9 @@
 #!/bin/bash
 
-CODEGEN=$HOME/applications/swagger-codegen-cli.jar
+set -x
+
+CODEGEN=$HOME/applications/swagger-codegen/modules/swagger-codegen-cli/target/swagger-codegen-cli.jar
+# CODEGEN=swagger-codegen-cli.jar
 
 SERVICE=http://localhost:8080/v1
 
@@ -11,6 +14,12 @@ CONFIG=$SERVICE/service/config
 
 if [[ -n "$1" ]]; then
   CODEGEN=$1
+# else
+#
+#   if [ ! -f "$CODEGEN" ]; then
+#     wget http://repo1.maven.org/maven2/io/swagger/swagger-codegen-cli/2.1.5/swagger-codegen-cli-2.1.5.jar -O swagger-codegen-cli.jar
+#   fi
+
 fi
 
 if [[ -n "$2" ]]; then
@@ -33,7 +42,7 @@ $GENERATE -i $SWAGGER -l swagger -o ./swagger
 
 # STATIC HTML DOC
 
-$GENERATE -i $SWAGGER -l html -o ./html
+# $GENERATE -i $SWAGGER -l html -o ./html
 
 # PYTHON
 
@@ -42,7 +51,7 @@ echo '{
   "packageVersion": "'${VERSION}'"
 }' > ned_python.json
 
-$GENERATE -i $SWAGGER -l python -o ./python -c ned_python.json
+# $GENERATE -i $SWAGGER -l python -o ./python -c ned_python.json
 
 # RUBY
 
@@ -52,8 +61,8 @@ echo '{
   "gemVersion": "'$(echo ${VERSION}|sed 's/\-/\./')'"
 }' > ned_ruby.json
 
-$GENERATE -i $SWAGGER -l ruby -o ./ruby -c ned_ruby.json \
-  && cd ruby && rm *.gem && gem build ned_client.gemspec && cd ..
+# $GENERATE -i $SWAGGER -l ruby -o ./ruby -c ned_ruby.json \
+#   && cd ruby && rm *.gem && gem build ned_client.gemspec && cd ..
 
 # JAVA
 
@@ -66,6 +75,10 @@ echo '{
   "artifactVersion": "'${VERSION}'"
 }' > ned_java.json
 
+# to generate LocalDate objects use "dateLibrary": "java8" in above json
+#   cant use yet: https://github.com/swagger-api/swagger-codegen/issues/2377
+
+
 echo 'mvn deploy:deploy-file \
 		-DpomFile="pom.xml" \
 		-DgroupId="org.plos" \
@@ -77,7 +90,10 @@ echo 'mvn deploy:deploy-file \
     -Durl=sftp://maven.ambraproject.org/home/maven2/repository/release
 ' > java_deploy/deploy.sh
 
-$GENERATE -i $SWAGGER -l java -o ./java -c ned_java.json \
+$GENERATE -i $SWAGGER -l java \
+  -o ./java -t ./templates/Java \
+  --import-mappings Group=org.plos.ned_client.model.Group,Relationship=org.plos.ned_client.model.Relationship \
+  -c ned_java.json \
   && cd java && mvn clean install && cd ..
 
 
