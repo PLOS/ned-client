@@ -7,14 +7,8 @@ import org.plos.ned_client.auth.*;
 import java.io.UnsupportedEncodingException;
 import javax.xml.bind.DatatypeConverter;
 
-// import com.fasterxml.jackson.databind.ObjectMapper;
-// import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
-
 public class App {
     public static void main( String[] args ) throws ApiException {
-
-        // ObjectMapper mapper = new ObjectMapper();
-        // mapper.registerModule(new Jdk8Module());
 
         ApiClient apiclient = new ApiClient();
         apiclient.setBasePath("http://localhost:8080/v1");
@@ -28,9 +22,12 @@ public class App {
 
         System.out.println(serviceApi.config());
 
-        System.out.println("typeclass description: " + typeclassesapi.read(12).getDescription());
+        System.out.println("typeclass description: " +
+        typeclassesapi.read(12).getDescription());
 
         individualsApi.readIndividual(476550);
+
+        System.out.println("Start date: " +individualsApi.getGroups(476550).get(0).getStartdate());
 
     }
 }

@@ -153,18 +153,6 @@
       <version>${jodatime-version}</version>
     </dependency>
 
-    <dependency>
-      <groupId>com.fasterxml.jackson.datatype</groupId>
-      <artifactId>jackson-datatype-jsr310</artifactId>
-      <version>2.6.3</version>
-    </dependency>
-
-    <dependency>
-      <groupId>com.fasterxml.jackson.datatype</groupId>
-      <artifactId>jackson-datatype-jdk8</artifactId>
-      <version>2.6.3</version>
-    </dependency>
-
     <!-- Base64 encoding that works in both JVM and Android -->
     <dependency>
       <groupId>com.brsanthu</groupId>
