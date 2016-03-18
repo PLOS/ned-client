@@ -25,9 +25,9 @@ public class App {
     System.out.println("typeclass description: " +
     typeclassesapi.read(12).getDescription());
 
-    individualsApi.readIndividual(476550);
+    individualsApi.readIndividual(6);
 
-    System.out.println("Start date: " +individualsApi.getGroups(476550).get(0).getStartdate());
+    System.out.println("Start date: " +individualsApi.getGroups(6).get(0).getStartdate());
 
   }
 }

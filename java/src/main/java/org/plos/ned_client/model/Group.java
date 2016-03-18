@@ -7,9 +7,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.Date;
 import java.time.LocalDate;
 
-import org.plos.ned_client.*;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+// import org.plos.ned_client.*;
+// import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+// import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 @javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen")
 public class Group   {
@@ -29,12 +29,12 @@ public class Group   {
   private String applicationtype = null;
   private Integer applicationtypeid = null;
 
-  @JsonSerialize(using = LocalDateSerializer.class)
-  @JsonDeserialize(using = LocalDateDeserializer.class)
+  // @JsonSerialize(using = LocalDateSerializer.class)
+  // @JsonDeserialize(using = LocalDateDeserializer.class)
   private LocalDate startdate = null;
 
-  @JsonSerialize(using = LocalDateSerializer.class)
-  @JsonDeserialize(using = LocalDateDeserializer.class)
+  // @JsonSerialize(using = LocalDateSerializer.class)
+  // @JsonDeserialize(using = LocalDateDeserializer.class)
   private LocalDate enddate = null;
 
   /**
