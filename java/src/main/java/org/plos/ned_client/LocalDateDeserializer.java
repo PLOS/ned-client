@@ -1,7 +1,7 @@
 package org.plos.ned_client;
 
 import java.io.IOException;
-import java.time.LocalDate;
+import org.joda.time.LocalDate;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.SerializerProvider;

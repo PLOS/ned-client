@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Date;
-import java.time.LocalDate;
+import org.joda.time.LocalDate;
 
 import org.plos.ned_client.*;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
