@@ -67,7 +67,7 @@ public class ApiClient {
     mapper.enable(DeserializationFeature.READ_ENUMS_USING_TO_STRING);
     mapper.registerModule(new JodaModule());
 
-    this.dateFormat = new ClientDateFormat();
+    this.dateFormat = new ClientDateTimeFormat();
 
     // Use UTC as the default time zone.
     this.dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
@@ -588,15 +588,19 @@ public class ApiClient {
   }
 }
 
-class ClientDateFormat extends SimpleDateFormat {
+class ClientDateTimeFormat extends SimpleDateFormat {
+
+  // The time zone format "XXX" is available in Java 1.7+
+  public static final String JAVA_7_DATE_FORMAT     = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX";
+  public static final String PRE_JAVA_7_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSSZ";
 
   public static final double JAVA_VERSION;
   static {
     JAVA_VERSION = Double.parseDouble(System.getProperty("java.specification.version"));
   }
 
-  public ClientDateFormat() {
-    applyPattern(getDateFormatPattern());
+  public ClientDateTimeFormat() {
+    applyPattern(getDateTimeFormatPattern());
   }
 
   @Override
@@ -610,12 +614,11 @@ class ClientDateFormat extends SimpleDateFormat {
     return super.parse(source, pos);
   }
 
-  private String getDateFormatPattern() {
+  String getDateTimeFormatPattern() {
     if (JAVA_VERSION >= 1.7) {
-      // The time zone format "XXX" is available since Java 1.7
-      return "yyyy-MM-dd'T'HH:mm:ss.SSSXXX";
+      return JAVA_7_DATE_FORMAT;
     }
     // Use a common format that works across all systems.
-    return "yyyy-MM-dd'T'HH:mm:ss.SSSZ";
+    return PRE_JAVA_7_DATE_FORMAT;
   }
 }
