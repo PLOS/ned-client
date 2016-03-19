@@ -37,26 +37,46 @@ public class ApiClientTest {
     setJdkVersion(1.6);
     ClientDateTimeFormat dateformat = new ClientDateTimeFormat();
     for (int i = 0; i < dateTimeStrings.length; i++) {
-      dateformat.parse(dateTimeStrings[i]);
+      assertNotNull( dateformat.parse(dateTimeStrings[i]) );
     }
   }
 
-  //@Test
+  @Test
   public void testDateParsingForJdk7() throws Exception {
-    double[] jdks = { 1.6, 1.7, 1.8 };
+    double[] jdks = { 1.7, 1.8 };
 
-    String[] dateTimeStrings = {
-      "2016-03-16T15:09:15.763-0700",   // rfc 822/iso 8601 tz
-      "2016-03-16T15:09:15.763-07:00",  // iso 8601 tz
-      "2016-03-16T15:09:15.763-07"      // iso 8601 tz
+    String[] parsableDateTimeStrings = {
+      "2016-03-16T15:09:15.763-07:00"   // iso 8601 tz
     };
 
     for (int i = 0; i < jdks.length; i++) {
-      for (int j = 0; j < dateTimeStrings.length; j++) {
+      for (int j = 0; j < parsableDateTimeStrings.length; j++) {
         setJdkVersion(jdks[i]);
         ClientDateTimeFormat dateformat = new ClientDateTimeFormat();
-System.out.println( "X"+dateformat.getDateTimeFormatPattern() );
-        dateformat.parse(dateTimeStrings[j]);
+        assertNotNull( dateformat.parse(parsableDateTimeStrings[j]) );
+      }
+    }
+
+    String[] unparsableDateTimeStrings = {
+      "2016-03-16T15:09:15.763-0700",
+      "2016-03-16T15:09:15.763-07"
+    };
+
+    for (int i = 0; i < jdks.length; i++) {
+      for (int j = 0; j < unparsableDateTimeStrings.length; j++) {
+        setJdkVersion(jdks[i]);
+        ClientDateTimeFormat dateformat = new ClientDateTimeFormat();
+        try {
+          dateformat.parse(unparsableDateTimeStrings[j]);
+        } 
+        catch (java.text.ParseException expected) {
+          // client date format (XXX) currently only supports the ISO 8601
+          // timezone component with hours and minutes (ex: -08:00). a format
+          // mask of XX would be able to parse -0700; similarly, a format mask
+          // with one X would be able to parse -07. this may be a moot point
+          // though because ned-api generates timezones with hours and minutes
+          // (-08:00).
+        }
       }
     }
   }
