@@ -605,10 +605,13 @@ class ClientDateTimeFormat extends SimpleDateFormat {
   @Override
   public Date parse(String source, ParsePosition pos) {
 
-    if (JAVA_VERSION < 1.7 && source.length() == 29) {
-      // 2016-03-16T15:09:15.763-07:00
-      // remove colon from timezone (rfc 822 format)
-      source = source.replaceAll(":(\\d\\d)$", "$1");
+    if (JAVA_VERSION < 1.7) {
+      // make timezone RFC 822 compliant (-0700), if necessary
+      if (source.length() == 29) {
+        source = source.replaceAll(":(\\d\\d)$", "$1"); // 2016-03-16T15:09:15.763-07:00
+      } else if (source.length() == 26) {
+        source = source+"00";                           // 2016-03-16T15:09:15.763-07
+      }
     }
     return super.parse(source, pos);
   }
