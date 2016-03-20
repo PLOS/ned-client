@@ -4,6 +4,7 @@
 .project
 .settings
 *.log
+debug.sh
 mdb.ini
 target
 *.pyc
