@@ -8,15 +8,15 @@
   "tags" : [ {
     "name" : "institutionsearch"
   }, {
-    "name" : "queries"
+    "name" : "service"
   }, {
     "name" : "typeclasses"
-  }, {
-    "name" : "service"
   }, {
     "name" : "individuals"
   }, {
     "name" : "organizations"
+  }, {
+    "name" : "queries"
   } ],
   "schemes" : [ "https", "http" ],
   "paths" : {
@@ -2636,11 +2636,11 @@
         },
         "startdate" : {
           "type" : "string",
-          "format" : "date-time"
+          "format" : "date"
         },
         "enddate" : {
           "type" : "string",
-          "format" : "date-time"
+          "format" : "date"
         },
         "applicationtype" : {
           "type" : "string"
@@ -2894,10 +2894,6 @@
         "source" : {
           "type" : "string"
         },
-        "sourcetypeid" : {
-          "type" : "integer",
-          "format" : "int32"
-        },
         "nedid" : {
           "type" : "integer",
           "format" : "int32"
@@ -2906,13 +2902,17 @@
           "type" : "integer",
           "format" : "int32"
         },
-        "isactive" : {
-          "type" : "boolean",
-          "default" : false
+        "sourcetypeid" : {
+          "type" : "integer",
+          "format" : "int32"
         },
         "lastmodified" : {
           "type" : "string",
           "format" : "date-time"
+        },
+        "isactive" : {
+          "type" : "boolean",
+          "default" : false
         },
         "familiarname" : {
           "type" : "string"
@@ -3269,11 +3269,11 @@
         },
         "startdate" : {
           "type" : "string",
-          "format" : "date-time"
+          "format" : "date"
         },
         "enddate" : {
           "type" : "string",
-          "format" : "date-time"
+          "format" : "date"
         }
       }
     },

@@ -4,8 +4,10 @@
 .project
 .settings
 *.log
+debug.sh
 mdb.ini
 target
 *.pyc
 .idea
 *.iml
+swagger-codegen-cli.jar
