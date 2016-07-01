@@ -8,6 +8,30 @@ See https://github.com/swagger-api/swagger-codegen
 
 This assumes you have built their master branch into $HOME/applications/swagger-codegen
 
+    mkdir ~/applications
+    cd applications
+    git clone https://github.com/swagger-api/swagger-codegen
+    cd swagger-codegen
+    ./run-in-docker.sh mvn package
+
+    [INFO] ------------------------------------------------------------------------
+    [INFO] Reactor Summary:
+    [INFO]
+    [INFO] swagger-codegen-project ............................ SUCCESS [  1.266 s]
+    [INFO] swagger-codegen (core library) ..................... SUCCESS [ 18.974 s]
+    [INFO] swagger-codegen (executable) ....................... SUCCESS [  4.075 s]
+    [INFO] swagger-codegen (maven-plugin) ..................... SUCCESS [  3.666 s]
+    [INFO] swagger-generator .................................. SUCCESS [  7.049 s]
+
+
+    *** NOTE ***
+    2016-07-01: the generate clients script failed with latest swagger codegen
+    code. it generated code that wouldn't even compile. generation succeeded 
+    by rolling back to latest stable release (v2.1.6)
+
+        cd swagger-codegen
+        git checkout v2.1.6
+        ...
 
 ## Generate/Update the client libraries
 
