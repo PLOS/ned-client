@@ -63,7 +63,7 @@ public class IndividualComposite   {
    **/
   
   @ApiModelProperty(value = "")
-  @JsonProperty("auth")
+  @JsonProperty("credentials")
   public List<Auth> getAuth() {
     return auth;
   }
