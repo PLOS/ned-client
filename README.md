@@ -1,3 +1,5 @@
+**Obsolete, no longer developed. Still in use.**
+
 # NED Client Libraries
 
 These libraries are auto generated from NED's Swagger spec via swagger codegen. The library versions correspond to the version of the NED API they were generated from.
