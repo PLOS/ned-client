@@ -5,7 +5,7 @@
   <artifactId>ned-client</artifactId>
   <packaging>jar</packaging>
   <name>ned-client</name>
-  <version>1.2.0</version>
+  <version>1.2.1-SNAPSHOT</version>
 
   <prerequisites>
     <maven>2.2.0</maven>
